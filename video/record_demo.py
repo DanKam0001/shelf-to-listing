@@ -47,15 +47,13 @@ with sync_playwright() as p:
         gen_btn.wait_for(state="visible", timeout=10000)
         page.wait_for_timeout(250)
         gen_btn.click()
-        page.get_by_text("Listing ready").wait_for(state="visible", timeout=30000)
-        page.wait_for_timeout(500)  # let the title settle on screen first
-
         # the result (title, price/category/condition, description) renders BELOW the fold --
         # Streamlit scrolls its own [data-testid="stMain"] container, not the window, so scroll
         # THAT element. Compute the exact offset so the title sits near the top of the viewport,
         # guaranteeing the metrics row and description below it are visible too.
         title_heading = page.locator("h3").last
-        title_heading.wait_for(state="visible", timeout=5000)
+        title_heading.wait_for(state="visible", timeout=30000)
+        page.wait_for_timeout(500)  # let the title settle on screen first
         box = title_heading.bounding_box()
         cur_scroll = page.eval_on_selector("[data-testid='stMain']", "el => el.scrollTop")
         target = cur_scroll + box["y"] - 130

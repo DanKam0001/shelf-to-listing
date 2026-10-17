@@ -63,6 +63,16 @@ two real photos, live, with no edits to the output.
 - A single vision-language model call per listing — `glm-5p3-flash`, with
   `kimi-k3-fast` as an automatic fallback
 
+## Demo video photo credits
+
+The two photos used in `video/demo.mp4` are real, unstaged photos from Wikimedia Commons
+(not stock photography, not AI-generated):
+
+- Yard sale items: [BoiseYardSaleSwag.jpg](https://commons.wikimedia.org/wiki/File:BoiseYardSaleSwag.jpg)
+  by Kencf0618, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+- Crockery lot: [ALANG SECOND SALE MARKET 6.jpg](https://commons.wikimedia.org/wiki/File:ALANG_SECOND_SALE_MARKET_6.jpg)
+  by Bambhaniya Ravikumar, [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)
+
 ## Track rule compliance
 
 This is not a demand/sales forecasting tool, so the Commerce track's
