@@ -1,5 +1,6 @@
 [
- ["01-hook", "You've got a pile of stuff to sell, and zero time to write the listings. What if one photo did it for you?"],
- ["02-demo", "This is Shelf to Listing. Take a photo of anything you want to sell, upload it, and a vision model looks straight at the item. In a few seconds it hands back a full listing: a title, the category, an honest condition, a description a buyer would actually read, and a fair price with the reasoning behind it. No typing, no guessing what to charge. Try a second item, and it's just as fast, every time structured, ready to post exactly as it is. The model runs through Fireworks, serving open models on AMD Instinct GPUs, so every listing you see here was generated on real AMD hardware."],
- ["03-close", "Shelf to Listing. Snap a photo, get a listing, go sell it. Built for AMD Developer Hackathon Act three, on AMD Instinct GPUs."]
+ ["01-hook", "I've got a guitar that's been sitting in the corner for three years. Writing the listing is the only reason it's still there."],
+ ["02-demo", "This is Shelf to Listing. Upload a photo, hit generate, and a vision model looks at what's actually in the shot, not a template. A few seconds later you've got a title, a price, and a description someone would actually read. Try a second item and it does it again, just as fast."],
+ ["03-who-and-why", "Flippers use this differently: ten items at an estate sale, ten price checks before deciding what's worth buying. Found something in a garage clean-out and genuinely don't know what it is? Point the camera at it. Every one of those is a single photo, not a batch job, and that's the exact case where AMD's extra memory per chip has actually come out cheaper than the usual Nvidia setup in independent benchmarks. Check ten items instead of one and that difference adds up."],
+ ["04-close", "It's live, it's on GitHub, and that guitar's listing took about four seconds to write."]
 ]

@@ -1,0 +1,35 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="p.css">
+<script src="anim.js"></script>
+<style>
+  .pad{position:absolute;left:150px;right:150px;top:140px}
+  .row{display:flex;gap:70px;margin-top:40px}
+  .col{flex:1}
+  .h{font:700 46px Inter,sans-serif;margin-bottom:14px}
+  .sub{font:400 26px Inter,sans-serif;color:var(--mute);line-height:1.5;max-width:620px}
+  .divider{position:absolute;left:150px;top:140px;bottom:140px;width:1px;background:var(--line)}
+  .stat{margin-top:28px;font:700 30px 'JetBrains Mono',monospace;color:var(--acc)}
+  .cite{font:400 18px Inter,sans-serif;color:#4f5a6e;margin-top:8px}
+</style></head>
+<body>
+<div class="pad">
+  <div class="kick" data-cue="flippers" data-dur="0.5">WHO IT'S FOR</div>
+  <div class="row">
+    <div class="col">
+      <div class="h" data-cue="flippers" data-dur="0.7">Flippers</div>
+      <div class="sub" data-cue="estate" data-dur="0.7">Ten items at an estate sale. Ten price checks before deciding what's worth buying.</div>
+    </div>
+    <div class="col">
+      <div class="h" data-cue="camera" data-dur="0.7">Don't know what it is?</div>
+      <div class="sub" data-cue="camera" data-dur="0.7">Garage clean-out, inherited junk &mdash; point the camera and find out.</div>
+    </div>
+  </div>
+  <div style="margin-top:80px;border-top:1px solid var(--line);padding-top:50px">
+    <div class="kick" data-cue="batch" data-dur="0.5">WHY AMD</div>
+    <div class="h" data-cue="batch" data-dur="0.7">One photo at a time, not a batch job</div>
+    <div class="sub" data-cue="memory" data-dur="0.7" style="max-width:1100px">That's exactly the case where AMD's larger memory per chip has held a real cost edge over the usual Nvidia setup, in published benchmarks.</div>
+    <div class="stat" data-cue="adds" data-dur="0.6" data-fx="fade">10 items checked &ne; 10&times; the cost you'd expect</div>
+  </div>
+</div>
+</body></html>

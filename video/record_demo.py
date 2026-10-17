@@ -42,13 +42,13 @@ with sync_playwright() as p:
     for i, photo in enumerate(photos):
         uploader = page.locator("input[type='file']")
         uploader.set_input_files(str(photo))
-        page.wait_for_timeout(1500)
+        page.wait_for_timeout(1000)
         gen_btn = page.get_by_role("button", name="Generate listing")
         gen_btn.wait_for(state="visible", timeout=10000)
-        page.wait_for_timeout(500)
+        page.wait_for_timeout(250)
         gen_btn.click()
         page.get_by_text("Listing ready").wait_for(state="visible", timeout=30000)
-        page.wait_for_timeout(900)  # let the title settle on screen first
+        page.wait_for_timeout(500)  # let the title settle on screen first
 
         # the result (title, price/category/condition, description) renders BELOW the fold --
         # Streamlit scrolls its own [data-testid="stMain"] container, not the window, so scroll
@@ -60,19 +60,18 @@ with sync_playwright() as p:
         cur_scroll = page.eval_on_selector("[data-testid='stMain']", "el => el.scrollTop")
         target = cur_scroll + box["y"] - 130
         page.eval_on_selector("[data-testid='stMain']",
-                               "(el, y) => el.scrollTo({top: y, behavior: 'smooth'})", target)
-        page.wait_for_timeout(1000)
-        page.wait_for_timeout(3600)
+                               "(el, y) => el.scrollTo({top: y, behavior: 'instant'})", target)
+        page.wait_for_timeout(2200)
 
         if i < len(photos) - 1:
             page.eval_on_selector("[data-testid='stMain']", "el => el.scrollTo(0, 0)")
-            page.wait_for_timeout(600)
+            page.wait_for_timeout(350)
             clear_btn = page.locator("button[aria-label='Remove file']")
             if clear_btn.count():
                 clear_btn.first.click()
-                page.wait_for_timeout(700)
+                page.wait_for_timeout(450)
 
-    page.wait_for_timeout(1200)
+    page.wait_for_timeout(600)
     ctx.close()
     browser.close()
 
