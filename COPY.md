@@ -7,15 +7,19 @@ Shelf to Listing
 Photograph anything you want to sell — get a ready-to-post marketplace listing back in seconds, written by a vision model running on AMD Instinct GPUs.
 
 ## Long description
-Writing a marketplace listing is the single biggest reason a pile of stuff never makes it online: finding the right words, guessing a fair price, deciding what condition to call it. Shelf to Listing removes that friction entirely. Take one photo of an item — a market-stall find, a garage-sale piece, something sitting on a shop shelf — and a vision-language model looks at it directly and returns a complete listing: a punchy title, category, honest condition assessment, a buyer-ready description, and a realistic suggested price with its reasoning, all as structured output in under a few seconds.
+Writing a marketplace listing is the reason a pile of stuff never makes it online: finding the words, guessing a price, deciding what condition to call it. Take one photo of an item and a vision model returns a title, category, condition, a buyer-ready description, and a price with its reasoning — structured output, a few seconds, no market lookup pretending to be one (the app says so).
 
-The model runs on Fireworks' managed inference platform, which serves open models on AMD Instinct GPU infrastructure — no self-hosting, no separate training step, just a photo in and a listing out. It's built for the person who has ten things to sell and no time to write ten descriptions: snap, generate, post.
+It's three use cases in one. Sellers clearing out a pile of stuff. Flippers doing rapid price-triage at an estate sale or thrift store — ten items, ten checks, before deciding what's worth buying. And people who genuinely don't know what the thing in their hands is: inherited junk, a garage-clean-out mystery item, point the camera and find out.
+
+There's also a second feature: once a listing is generated, "Remove background" cuts the item out of the photo (transparent and plain-white versions, downloadable), since most marketplaces want a plain product shot, not a photo of your living room.
+
+**Why AMD, specifically**: the honest case isn't "AMD is always cheaper" — published benchmarks are workload-dependent. But our workload is single-photo, one-at-a-time inference, not batched — and that's exactly the regime where AMD Instinct's larger memory per chip has shown a real per-token cost edge over the equivalent Nvidia setup (e.g. ~21% cheaper at batch size 1 in RunPod's published Mixtral 8x7B benchmark). For a flipper checking ten items instead of one, that's not a rounding error.
 
 **Track:** Commerce — Reinvent Commerce
-**Tech:** AMD Instinct GPUs (via Fireworks managed inference), Python, Streamlit
+**Tech:** AMD Instinct GPUs (via Fireworks managed inference), Python, Streamlit, rembg (background removal)
 
 ## Tags
 AMD, Commerce, Computer Vision, E-commerce, Fireworks AI, Python, Streamlit
 
-## Narration script (demo video, ~90-110s)
+## Narration script (demo video, ~65s)
 See video/vo.json
