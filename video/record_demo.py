@@ -51,7 +51,9 @@ with sync_playwright() as p:
         # Streamlit scrolls its own [data-testid="stMain"] container, not the window, so scroll
         # THAT element. Compute the exact offset so the title sits near the top of the viewport,
         # guaranteeing the metrics row and description below it are visible too.
-        title_heading = page.locator("h3").last
+        # .first, not .last: the page now has a second h3 ("Clean up the photo") below the
+        # listing, and the title is always the first h3 in document order regardless of timing.
+        title_heading = page.locator("h3").first
         title_heading.wait_for(state="visible", timeout=30000)
         page.wait_for_timeout(500)  # let the title settle on screen first
         box = title_heading.bounding_box()
