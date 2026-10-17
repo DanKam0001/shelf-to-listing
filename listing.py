@@ -52,7 +52,7 @@ def generate_listing(image_path: str, model: str = MODEL) -> dict:
                 ],
             }
         ],
-        max_tokens=500,
+        max_tokens=900,
         temperature=0.4,
     )
     text = resp.choices[0].message.content.strip()

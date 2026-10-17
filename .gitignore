@@ -11,3 +11,4 @@ venv/
 video/work/
 models.json
 uploaded_tmp.jpg
+streamlit.log

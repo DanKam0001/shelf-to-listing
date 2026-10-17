@@ -12,14 +12,19 @@ uploaded = st.file_uploader("Take or upload a photo of the item", type=["jpg", "
 if uploaded:
     st.image(uploaded, caption="Your photo", use_container_width=True)
     tmp_path = "uploaded_tmp.jpg"
-    Image.open(uploaded).convert("RGB").save(tmp_path)
+    img = Image.open(uploaded).convert("RGB")
+    img.thumbnail((1600, 1600))
+    img.save(tmp_path, quality=90)
 
     if st.button("Generate listing", type="primary"):
         with st.spinner("Looking at the photo and writing your listing..."):
             try:
                 result = generate_listing(tmp_path, model=MODEL)
             except Exception:
-                result = generate_listing(tmp_path, model=FALLBACK_MODEL)
+                try:
+                    result = generate_listing(tmp_path, model=MODEL)  # one retry on the working model
+                except Exception:
+                    result = generate_listing(tmp_path, model=FALLBACK_MODEL)
 
         st.success("Listing ready")
         st.subheader(result["title"])
