@@ -45,6 +45,12 @@ Or from the CLI:
 python listing.py path/to/photo.jpg
 ```
 
+## Also: clean up the photo
+
+After generating a listing, "Remove background" cuts the item out of the photo (transparent and
+plain-white versions, downloadable as PNG) via a local segmentation model (`rembg`/u2net) — most
+marketplaces want a plain-background product shot, not your actual room.
+
 ## Demo
 
 See `video/demo.mp4` for a recording of the real app generating listings from
