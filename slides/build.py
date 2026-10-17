@@ -5,7 +5,7 @@ from PIL import Image
 from playwright.sync_api import sync_playwright
 
 HERE = Path(__file__).resolve().parent
-names = ["01-title", "02-problem", "03-solution", "04-tech", "05-close"]
+names = ["01-title", "02-problem", "03-solution", "04-tech", "05-who", "06-close"]
 
 imgs = []
 with sync_playwright() as p:

@@ -1,15 +1,15 @@
 <!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="common.css"></head>
 <body>
 <div class="pad">
-  <div class="kick">HOW IT RUNS</div>
-  <div class="h1">Built on AMD, start to finish.</div>
-  <div class="h2">Vision inference runs through Fireworks' managed, OpenAI-compatible API &mdash; backed by AMD Instinct GPUs. No self-hosted server, no separate training step.</div>
-  <div style="margin-top:46px"><span class="chip">AMD Instinct GPUs</span><span class="chip">Fireworks managed inference</span><span class="chip">Python</span><span class="chip">Streamlit</span></div>
-  <div class="grid3" style="margin-top:60px">
-    <div class="card"><div class="lbl">1. Photo in</div><div class="sub">upload or snap a photo of the item</div></div>
-    <div class="card"><div class="lbl">2. One vision call</div><div class="sub">glm-5p3-flash on AMD Instinct, kimi-k3-fast as fallback</div></div>
-    <div class="card"><div class="lbl">3. Listing out</div><div class="sub">structured JSON &rarr; rendered, ready to post</div></div>
+  <div class="kick">WHY AMD, SPECIFICALLY</div>
+  <div class="h1">One photo at a time &mdash; not a batch job.</div>
+  <div class="h2">The honest version isn't "AMD is always cheaper": published benchmarks are workload-dependent. But our workload is single-image inference, not batched &mdash; and that's exactly the regime where AMD Instinct's larger memory per chip has shown a real cost edge.</div>
+  <div class="grid3" style="margin-top:50px">
+    <div class="card"><div class="num">~21%</div><div class="lbl">cheaper per token</div><div class="sub">RunPod's published Mixtral 8x7B benchmark, at batch size 1</div></div>
+    <div class="card"><div class="num">192GB</div><div class="lbl">memory per chip</div><div class="sub">vs 80GB on the equivalent Nvidia part</div></div>
+    <div class="card"><div class="num">10&times;</div><div class="lbl">items, not 10&times; the cost</div><div class="sub">matters once a flipper checks more than one</div></div>
   </div>
+  <div style="margin-top:40px"><span class="chip">AMD Instinct GPUs</span><span class="chip">Fireworks managed inference</span><span class="chip">Python</span><span class="chip">Streamlit</span></div>
 </div>
 <div class="foot">SHELF TO LISTING</div><div class="pageno">04</div>
 </body></html>
