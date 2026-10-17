@@ -1,0 +1,17 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="p.css">
+<script src="anim.js"></script>
+<style>
+  .wrap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:28px}
+  .line{font:700 56px Inter,sans-serif;color:var(--ink)}
+  .line .mute{color:var(--mute)}
+  .accent{font:800 76px Inter,sans-serif;background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent;margin-top:12px}
+</style></head>
+<body>
+  <div class="wrap">
+    <div class="kick abs" data-cue="pile" data-fx="fade" data-dur="0.5" style="top:260px">THE PROBLEM</div>
+    <div class="line" data-cue="pile" data-dur="0.7">A pile of stuff to sell<span class="mute">, and zero time to write it up.</span></div>
+    <div class="accent" data-cue="photo" data-dur="0.8" data-fx="pop">One photo. One listing.</div>
+  </div>
+</body></html>

@@ -1,0 +1,19 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="p.css">
+<script src="anim.js"></script>
+<style>
+  .wrap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:22px}
+  .title{font:800 84px Inter,sans-serif;display:flex;align-items:center;gap:20px}
+  .title .logo{width:1em;height:1em;border-radius:.2em;font-size:84px}
+  .tag{font:600 32px Inter,sans-serif;color:var(--mute)}
+  .tag b{color:var(--ink);font-weight:700}
+  .badge{margin-top:18px;font:700 20px 'JetBrains Mono',monospace;letter-spacing:1.5px;padding:10px 20px;border-radius:999px;background:rgba(94,234,212,.12);color:var(--acc);border:1px solid rgba(94,234,212,.3)}
+</style></head>
+<body>
+  <div class="wrap">
+    <div class="title" data-cue="shelf" data-fx="pop" data-dur="0.7"><span class="logo">🏷️</span>Shelf to Listing</div>
+    <div class="tag" data-cue="snap" data-dur="0.6"><b>Snap</b> a photo. <b>Get</b> a listing. <b>Go</b> sell it.</div>
+    <div class="badge" data-cue="amd" data-dur="0.6" data-fx="fade">BUILT ON AMD INSTINCT GPUs &middot; AMD DEVELOPER HACKATHON: ACT III</div>
+  </div>
+</body></html>

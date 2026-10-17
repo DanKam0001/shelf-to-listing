@@ -1,0 +1,13 @@
+.env
+__pycache__/
+*.pyc
+venv/
+.venv/
+*.jpg
+*.jpeg
+*.png
+!cover.png
+!assets/**
+video/work/
+models.json
+uploaded_tmp.jpg
