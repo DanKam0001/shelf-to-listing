@@ -1,6 +1,6 @@
 [
  ["01-hook", "I've got a guitar that's been sitting in the corner for three years. Writing the listing is the only reason it's still there."],
- ["02-demo", "This is Shelf to Listing. Upload a photo, hit generate, and a vision model looks at what's actually in the shot, not a template. A few seconds later you've got a title, a price, and a description someone would actually read. Try a second item and it does it again, just as fast."],
+ ["02-demo", "This is Shelf to Listing. Upload a photo, hit generate, and a vision model looks at what's actually in the shot, not a template. A few seconds later you've got a title, a price, and a description someone would actually read, plus a plain-background cutout so you're not posting a photo of your actual living room. Try a second item and it does the whole thing again, just as fast."],
  ["03-who-and-why", "Flippers use this differently: ten items at an estate sale, ten price checks before deciding what's worth buying. Found something in a garage clean-out and genuinely don't know what it is? Point the camera at it. Every one of those is a single photo, not a batch job, and that's the exact case where AMD's extra memory per chip has actually come out cheaper than the usual Nvidia setup in independent benchmarks. Check ten items instead of one and that difference adds up."],
  ["04-close", "It's live, it's on GitHub, and that guitar's listing took about four seconds to write."]
 ]
