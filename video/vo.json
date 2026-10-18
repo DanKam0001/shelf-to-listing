@@ -1,6 +1,6 @@
 [
  ["01-hook", "A few years back I cleared out a room, and half of it never got listed. Writing it all up was the reason it just sat there instead."],
- ["02-demo", "This is Snap Seller. Upload a photo, hit generate, and a vision model looks at what's actually in the shot, not a template. A few seconds later you've got a title, a price, and a description someone would actually read, plus an honest confidence rating on that price and exactly what to add if it's not high. Try a second item and it does the whole thing again, just as fast."],
+ ["02-demo", "This is Snap Seller. Upload a photo, hit generate, and a vision model looks at what's actually in the shot, not a template. A few seconds later you've got a title, a price, and a description someone would actually read, plus a plain-background cutout so you're not posting a photo of your actual living room. Try a second item and it does the whole thing again, just as fast."],
  ["03-who-and-why", "Flippers use this differently: ten items at an estate sale, ten price checks before deciding what's worth buying. Found something in a garage clean-out and genuinely don't know what it is? Point the camera at it. Every one of those is a single photo, not a batch job, and that's the exact case where AMD's extra memory per chip has actually come out cheaper than the usual Nvidia setup in independent benchmarks. Check ten items instead of one and that difference adds up."],
  ["04-close", "It's live, it's on GitHub, and each of those listings up there took about four seconds to write."]
 ]

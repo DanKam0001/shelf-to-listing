@@ -16,10 +16,12 @@ It rates its own confidence on that price (High/Medium/Low) and, when confidence
 
 It's three use cases in one. Sellers clearing out a pile of stuff. Flippers doing rapid price-triage at an estate sale or thrift store — ten items, ten checks, before deciding what's worth buying. And people who genuinely don't know what the thing in their hands is: inherited junk, a garage-clean-out mystery item, point the camera and find out.
 
+There's also a second feature: once a listing is generated, "Remove background" cuts the item out of the photo (transparent and plain-white versions, downloadable), since most marketplaces want a plain product shot, not a photo of your living room. For items that ARE worn or held, the automatic mode isolates the person instead — so there's a click-to-select mode too: click directly on the item in the photo and it runs point-prompted segmentation (FastSAM) from your exact clicks, cutting out what you pointed at rather than whatever looks most salient.
+
 **Why AMD, specifically**: the honest case isn't "AMD is always cheaper" — published benchmarks are workload-dependent. But our workload is single-photo, one-at-a-time inference, not batched — and that's exactly the regime where AMD Instinct's larger memory per chip has shown a real per-token cost edge over the equivalent Nvidia setup (e.g. ~21% cheaper at batch size 1 in RunPod's published Mixtral 8x7B benchmark). For a flipper checking ten items instead of one, that's not a rounding error.
 
 **Track:** Commerce — Reinvent Commerce
-**Tech:** AMD Instinct GPUs (via Fireworks managed inference), Python, Streamlit
+**Tech:** AMD Instinct GPUs (via Fireworks managed inference), Python, Streamlit, rembg (background removal)
 
 ## Tags
 AMD, Commerce, Computer Vision, E-commerce, Fireworks AI, Python, Streamlit
