@@ -1,11 +1,12 @@
-# 🏷️ Shelf to Listing
+# 📸 Snap Seller
 
-Photo in, ready-to-post marketplace listing out.
+One snap. Your listing's ready.
 
 Take a photo of anything you want to sell — a market-stall find, a garage-sale
 piece, something sitting on a shop shelf — and a vision-language model looks
 at it directly and writes the listing: title, category, condition, a
-buyer-ready description, and a suggested price with its reasoning. No typing,
+buyer-ready description, and a suggested price with its reasoning, plus a
+confidence rating on that price and concrete tips to raise it. No typing,
 no guessing what to charge.
 
 Built for **AMD Developer Hackathon: ACT III** — Commerce track.

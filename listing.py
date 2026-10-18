@@ -19,6 +19,10 @@ _client = OpenAI(
 PROMPT = """You are helping a small seller turn a photo into an online marketplace listing.
 Look at the photo and identify the single most prominent item for sale (if several items are visible, pick the clearest one).
 
+Be honest about uncertainty. You have no live market data and no internet access -- your price is drawn from
+general knowledge of typical resale prices, not a real listing lookup. If the photo doesn't clearly show a
+brand, model, or enough detail to price confidently, say so and rate your confidence accordingly.
+
 Return ONLY a JSON object, no other text, with exactly these keys:
 {
   "title": "short punchy listing title, under 70 characters",
@@ -26,7 +30,10 @@ Return ONLY a JSON object, no other text, with exactly these keys:
   "condition": "New / Like New / Good / Fair, your best guess from the photo",
   "description": "2-3 sentence listing description a buyer would read, written in plain friendly language",
   "suggested_price_aud": "a realistic single AUD price guess as a number, your best estimate for a used/private-sale item of this kind",
-  "price_reasoning": "one short sentence explaining the price guess"
+  "price_reasoning": "one short sentence on what general knowledge this estimate draws from (e.g. typical resale range for this kind of item) -- not a citation, since no live source was checked",
+  "price_confidence": "High / Medium / Low -- High only if the brand/model is clearly identifiable and it's a common item with a well-known resale range",
+  "confidence_reason": "one short sentence on why that confidence level, naming the specific thing that is or isn't visible",
+  "improve_listing_tips": ["1-3 short, concrete suggestions for what photo or detail would raise the confidence, e.g. 'a clear shot of the brand label' or 'a photo showing the size tag'. Omit entirely (empty list) if confidence is already High."]
 }
 """
 
@@ -52,7 +59,7 @@ def generate_listing(image_path: str, model: str = MODEL) -> dict:
                 ],
             }
         ],
-        max_tokens=900,
+        max_tokens=1200,
         temperature=0.4,
     )
     text = resp.choices[0].message.content.strip()
