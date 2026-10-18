@@ -3,7 +3,3 @@ openai
 python-dotenv
 pillow
 playwright
-rembg
-onnxruntime
-ultralytics
-streamlit-image-coordinates
