@@ -12,3 +12,5 @@ video/work/
 models.json
 uploaded_tmp.jpg
 streamlit.log
+FastSAM-s.pt
+*.pt

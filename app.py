@@ -1,9 +1,10 @@
 import io
 
 import streamlit as st
-from PIL import Image
+from PIL import Image, ImageDraw
+from streamlit_image_coordinates import streamlit_image_coordinates
 
-from isolate import isolate_item, isolate_on_white
+from isolate import isolate_from_points, isolate_item, isolate_on_white
 from listing import FALLBACK_MODEL, MODEL, generate_listing
 
 st.set_page_config(page_title="Snap Seller", page_icon="📸", layout="wide")
@@ -84,6 +85,9 @@ with left:
             st.session_state["uploaded_id"] = uploaded.file_id
             st.session_state.pop("result", None)
             st.session_state.pop("cutout", None)
+            st.session_state.pop("click_points", None)
+            st.session_state.pop("last_click", None)
+            st.session_state.pop("click_cutout", None)
         st.image(uploaded, caption="Your photo", use_container_width=True)
         tmp_path = "uploaded_tmp.jpg"
         img = Image.open(uploaded).convert("RGB")
@@ -153,6 +157,55 @@ with right:
             buf = io.BytesIO()
             st.session_state["cutout"].save(buf, format="PNG")
             st.download_button("Download cutout (PNG)", buf.getvalue(), file_name="item_cutout.png", mime="image/png")
+
+        with st.expander("Item worn or held by someone? Click on it instead"):
+            st.caption("Automatic removal grabs whatever's most prominent — on a worn item, that's the "
+                       "person. Click directly on the item itself (not the person) in the photo below; "
+                       "click more than once to cover more of it, e.g. once on each visible part.")
+            orig = Image.open(tmp_path).convert("RGB")
+            disp_w = 640
+            scale = orig.width / disp_w
+            disp = orig.resize((disp_w, int(orig.height / scale)))
+            points = st.session_state.get("click_points", [])
+            if points:
+                disp = disp.copy()
+                draw = ImageDraw.Draw(disp)
+                for px, py in points:
+                    x, y = px / scale, py / scale
+                    draw.ellipse([x - 7, y - 7, x + 7, y + 7], outline=(194, 85, 31), width=3)
+                    draw.ellipse([x - 2, y - 2, x + 2, y + 2], fill=(194, 85, 31))
+
+            coords = streamlit_image_coordinates(disp, key="click_img")
+            if coords and coords != st.session_state.get("last_click"):
+                st.session_state["last_click"] = coords
+                points = st.session_state.setdefault("click_points", [])
+                points.append((int(coords["x"] * scale), int(coords["y"] * scale)))
+                st.session_state.pop("click_cutout", None)
+                st.rerun()
+
+            n = len(points)
+            cc1, cc2, cc3 = st.columns([1, 1, 2])
+            with cc1:
+                if st.button(f"Cut out ({n} point{'s' if n != 1 else ''})", disabled=n == 0):
+                    with st.spinner("Segmenting from your clicks..."):
+                        cut, on_white = isolate_from_points(tmp_path, points)
+                        st.session_state["click_cutout"] = cut
+                        st.session_state["click_on_white"] = on_white
+            with cc2:
+                if st.button("Clear points", disabled=n == 0):
+                    st.session_state["click_points"] = []
+                    st.session_state.pop("last_click", None)
+                    st.session_state.pop("click_cutout", None)
+                    st.rerun()
+
+            if "click_cutout" in st.session_state:
+                k1, k2 = st.columns(2)
+                k1.image(st.session_state["click_cutout"], caption="Transparent background")
+                k2.image(st.session_state["click_on_white"], caption="On plain white")
+                buf2 = io.BytesIO()
+                st.session_state["click_cutout"].save(buf2, format="PNG")
+                st.download_button("Download cutout (PNG)", buf2.getvalue(),
+                                    file_name="item_cutout_clicked.png", mime="image/png", key="dl_click")
     elif uploaded:
         st.caption("Click **Generate listing** on the left to see your results here.")
     else:

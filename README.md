@@ -52,6 +52,12 @@ After generating a listing, "Remove background" cuts the item out of the photo (
 plain-white versions, downloadable as PNG) via a local segmentation model (`rembg`/u2net) — most
 marketplaces want a plain-background product shot, not your actual room.
 
+That automatic mode isolates whatever's most visually prominent, which is the *person* when the
+item is being worn or held. For that case, "Item worn or held by someone? Click on it instead"
+lets you click directly on the item in the photo (one or more points) and runs point-prompted
+segmentation (FastSAM) from those exact clicks — it cuts out the material you pointed at, not
+whatever looks most salient.
+
 ## Demo
 
 See `video/demo.mp4` for a recording of the real app generating listings from
